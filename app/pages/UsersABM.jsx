@@ -1,11 +1,13 @@
+import {useState} from "react";
+
 const UsersABM = () => {
 
-
+    const [ users, setUsers] = useState([]);
     
     async function getUsers() {
-        const response = fetch('http://localhost:3000/api/users');
+        const response = await fetch('http://127.0.0.1:3000/api/users');
         const data = await response.json();
-        users = data;
+        setUsers(data);
     }
 
     return(
@@ -18,7 +20,7 @@ const UsersABM = () => {
                 <h2>Lista de usuarios</h2>
                 <ul>
                     {
-                        users.map(user => <li> {user.name} </li>)
+                        users.map(user => <li key={user._id}> {user.name} </li>)
                     }
                 </ul>
             </main>
