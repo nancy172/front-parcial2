@@ -13,9 +13,13 @@ const SignUp = () => {
         role: '', 
         password:''
     });
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
 
     async function postUsers(e){
         e.preventDefault();
+        setMessage('');
+        setError('');
 
         try {
             const options = {
@@ -28,6 +32,7 @@ const SignUp = () => {
             const data = await response.json();
 
             if (response.ok) {
+                setMessage('¡Usuario registrado correctamente!');
                 // Se limpia el formulario
                 setUser({
                     name: '', 
@@ -36,10 +41,13 @@ const SignUp = () => {
                     role: 'adoptante', 
                     password:'' 
                 });
+            } else {
+                setError(data.message || 'Error al registrar usuario');
             }
 
         } catch (error) {
             console.log(error);
+            setError('Error. Intente nuevamente.')
         }
     }
 
@@ -53,6 +61,10 @@ const SignUp = () => {
                 <h1>Registrarse</h1>
             </header>
             <main>
+
+                {message && <div style={{color: 'green', marginBottom: '1em'}}> {message} </div>}
+                {error && <div style={{color: 'red', marginBottom: '1em'}}> {error} </div>}
+
                 <form onSubmit={postUsers}>
 
                     <div>
