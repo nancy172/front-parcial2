@@ -38,7 +38,7 @@ const SignUp = () => {
                     name: '', 
                     email: '', 
                     phone: '', 
-                    role: 'adoptante', 
+                    role: '', 
                     password:'' 
                 });
             } else {
