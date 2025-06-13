@@ -1,7 +1,7 @@
 import {useState} from "react";
-import './SignUp.css';
+import './Register.css';
 
-const SignUp = () => {
+const Register = () => {
 
     const HOST = 'http://127.0.0.1:3000/api';
 
@@ -139,4 +139,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp;
+export default Register;

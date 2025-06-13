@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import Home from './pages/Home';
-import SignUp from './pages/SignUp/SignUp';
+import Register from './pages/Register/Register';
 import NotFound from './pages/NotFound';
 import './App.css';
 
@@ -14,15 +14,17 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/signup">Registrarse</Link>
+            <Link to="/register">Registrarse</Link>
           </li>
         </ul>
       </nav>
+
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/signup' element={<SignUp/>}></Route>
-        <Route path='*' element={<NotFound/>}></Route>
+        <Route path='/' element= {<Home/>} />
+        <Route path='/register' element= {<Register/>} />
+        <Route path='*' element= {<NotFound/>} />
       </Routes>
+      
     </>
   )
 }
