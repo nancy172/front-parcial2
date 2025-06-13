@@ -1,9 +1,11 @@
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import './Register.css';
 
 const Register = () => {
 
     const HOST = 'http://127.0.0.1:3000/api';
+    const navigate = useNavigate();
 
     // Estados
     const [ user, setUser] = useState({
@@ -41,8 +43,9 @@ const Register = () => {
                     role: '', 
                     password:'' 
                 });
+                navigate("/Login");
             } else {
-                setError(data.message || 'Error al registrar usuario');
+                setError(data.message || 'Error al registrarse');
             }
 
         } catch (error) {
