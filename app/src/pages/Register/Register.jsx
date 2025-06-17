@@ -15,6 +15,11 @@ const Register = () => {
         role: '', 
         password:''
     });
+
+    function handlerChange(e){
+        setUser( {...user, [e.target.name]: e.target.value} );
+    };
+
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
 
@@ -54,9 +59,6 @@ const Register = () => {
         }
     }
 
-    function handlerChange(e){
-        setUser( {...user, [e.target.name]: e.target.value} );
-    };
 
     return(
         <>
