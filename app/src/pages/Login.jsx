@@ -1,6 +1,5 @@
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import './Login.css';
 
 const Login = () => {
 
@@ -25,7 +24,7 @@ const Login = () => {
                 body: JSON.stringify(user)
             };
 
-            const response = await fetch(`${HOST}/users/auth`, options);
+            const response = await fetch(`${HOST}/users/login`, options);
             const data = await response.json();
 
             if (response.ok) {
